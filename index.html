@@ -38,6 +38,9 @@ function compactTable(title,rows,sourceDate,headers,example){
  a.append(table,def);let s=document.createElement('small');s.className='source';s.textContent='来源：'+(sourceDate||'2026年11月19日 · Jour 2');a.append(s);$('root').append(a)
 }
 function specialTable(title,items,date){
+ if(/^(Être|Avoir)( · 现在时)?$/.test(title)){compactTable(title,items.map(x=>x.slice(0,2)),date,['人称变位','中文']);return true}
+ if(/^(定冠词|定冠词与省音|相对时间|课堂术语)$/.test(title)){compactTable(title,items.map(x=>x.slice(0,2)),date,['法语','中文']);return true}
+
  if(/^(国籍 · 阳性与阴性|教材 p.12 · 国籍|职业)$/.test(title)){let rows=[];for(const [f,z] of items){let label=z.replace(/（男性）|（女性）|（男女同形）/g,'');let parts=f.split(' / ');if(parts.length===2)rows.push([...parts,label]);else if(z.includes('（男性）'))rows.push([f,'',label]);else if(z.includes('（女性）')){let p=rows.find(x=>x[2]===label&&!x[1]);if(p)p[1]=f;else rows.push(['',f,label])}else if(f==='mère au foyer')rows.push(['',f,label]);else rows.push([f,f,label])}compactTable(title,rows,date,['阳性','阴性','中文'],'Je suis…');return true}
  if(/^(课堂笔记 · 我来自……|教材 p.11 · 国家来源|国家来源复习|教材 p.12 · 居住地)$/.test(title)){let rows=items.map(([f,z])=>[f.replace(/^Je (viens|suis|habite) /,'').replace(/\.$/,''),z.replace(/^我(来自|住在)\s*/,'').replace(/。$/,'')]);compactTable(title,rows,date,['来源／地点','中文'],items[0][0]);return true}
  if(/^(教材 p.11 · 国家名称|国家名称|语言词汇)$/.test(title)){compactTable(title,items.map(x=>x.slice(0,2)),date,['法语','中文']);return true}return false
