@@ -206,11 +206,13 @@ function blindFrenchWords(text,parent){
    const tail=piece.slice(piece.indexOf(trimmed)+trimmed.length);
    if(lead)parent.append(document.createTextNode(lead));
    const b=document.createElement('button');
-   b.className='word';
-   b.style.cssText='display:inline;line-height:1.7;padding:2px 4px;white-space:normal';
-   b.textContent=trimmed;
+   b.className='word blind-word';
+   b.type='button';
+   b.style.cssText='display:inline-flex;align-items:center;gap:3px;line-height:1.65;padding:7px 8px;margin:2px 3px 2px 0;white-space:normal;border:1px solid #a2c3af;border-radius:9px;background:#e7f2e9;color:#214b35;text-decoration:none;font-size:19px';
+   b.textContent='🔊 '+trimmed;
    b.setAttribute('aria-label','播放法语单词 '+trimmed);
-   b.onclick=()=>say(trimmed);
+   b.title='点这里听单词：'+trimmed;
+   b.onclick=()=>{b.setAttribute('aria-pressed','true');say(trimmed)};
    parent.append(b);
    if(tail)parent.append(document.createTextNode(tail));
  }
@@ -238,12 +240,13 @@ function renderBlindDemo(){
  button('🔁 再听一次',()=>say(q.fr),'margin:5px 4px');
  let answer=document.createElement('div');answer.style.cssText='margin:16px 0;text-align:left;line-height:1.65';
  if(blindRevealed){
-   let fr=document.createElement('h2');blindFrenchWords(q.fr,fr);answer.append(fr);
+   let legend=document.createElement('p');legend.className='note';legend.textContent='👇 每个带 🔊 的法语单词都是独立播放按钮；可连续点击听单词。';answer.append(legend);
+   let fr=document.createElement('h2');fr.style.cssText='display:flex;flex-wrap:wrap;align-items:center;gap:2px;line-height:1.9';blindFrenchWords(q.fr,fr);answer.append(fr);
    let replay=document.createElement('button');replay.textContent='🔊 听整句';replay.onclick=()=>say(q.fr);answer.append(replay);
    let zh=document.createElement('p');zh.textContent=q.zh;answer.append(zh);
    let note=document.createElement('strong');note.textContent='句子结构';answer.append(note);
    let table=document.createElement('table');table.className='studyTable';
-   let tr=table.insertRow();for(const [part] of q.parts){let th=document.createElement('th');let b=document.createElement('button');b.className='word';b.textContent='🔊 整组';b.style.cssText='font-size:13px;margin-bottom:5px';b.onclick=()=>say(part);th.append(b);th.append(document.createElement('div'));blindFrenchWords(part,th.lastChild);tr.append(th)}
+   let tr=table.insertRow();for(const [part] of q.parts){let th=document.createElement('th');let b=document.createElement('button');b.className='word';b.textContent='🔊 整组';b.type='button';b.style.cssText='font-size:13px;margin-bottom:5px';b.onclick=()=>say(part);th.append(b);let words=document.createElement('div');words.style.cssText='display:flex;flex-wrap:wrap;justify-content:center';th.append(words);blindFrenchWords(part,words);tr.append(th)}
    tr=table.insertRow();for(const [,meaning] of q.parts){let td=tr.insertCell();td.textContent=meaning}
    answer.append(table);
    let explanation=document.createElement('p');explanation.className='note';blindFrenchInNote(q.why,explanation);answer.append(explanation);
@@ -266,7 +269,27 @@ function navigation(){let m=$('menu');m.replaceChildren();$('root').replaceChild
 Object.assign(dictionary,{"foyer":"家庭；家；住所；壁炉。mère au foyer = 全职妈妈","mère":"母亲","habites-tu":"habites + tu：你居住（疑问句倒装）","conjoint":"伴侣（男性）","conjointe":"伴侣（女性）","fait":"事实；de fait = 事实上的","au":"à + le；au foyer = 在家中"});
 Object.assign(dictionary,{on:'魁北克口语中常表示“我们”，相当于 nous；动词用第三人称单数：on est / on a。'});
 const wordPOS={"foyer":"n. m.","nom":"n. m.","pays":"n. m.","mot":"n. m.","jour":"n. m.","mois":"n. m.","été":"n. m.","automne":"n. m.","hiver":"n. m.","printemps":"n. m.","garçon":"n. m.","fils":"n. m.","crayon":"n. m.","café":"n. m.","hôtel":"n. m.","oncle":"n. m.","respect":"n. m.","lit":"n. m.","mile":"n. m.","lys":"n. m.","professeur":"n. m.","mandarin":"n. m.","français":"n. m.","anglais":"n. m.","portugais":"n. m.","espagnol":"n. m.","russe":"n. m.","ourdou":"n. m.","polonais":"n. m.","langue":"n. f.","mère":"n. f.","famille":"n. f.","fille":"n. f.","lettre":"n. f.","phrase":"n. f.","question":"n. f.","routine":"n. f.","feuille":"n. f.","page":"n. f.","nationalité":"n. f.","date":"n. f.","saison":"n. f.","momie":"n. f.","chine":"n. f.","france":"n. f.","enfant":"n. m. / f.","enfants":"n. m. / f.","psychologue":"n. m. / f.","microbiologiste":"n. m. / f.","polyglotte":"n. m. / f.","beau":"adj.","belle":"adj.","facile":"adj.","difficile":"adj.","juste":"adj.","maternel":"adj.","maternelle":"adj.","présent":"adj.","présente":"adj.","marié":"adj.","mariée":"adj.","divorcé":"adj.","divorcée":"adj.","célibataire":"adj.","sale":"adj.","où":"adv.","comment":"adv.","couramment":"adv.","bien":"adv.","très":"adv.","beaucoup":"adv.","peu":"adv.","hier":"adv.","demain":"adv.","aujourd’hui":"adv.","avant-hier":"adv.","après-demain":"adv.","lentement":"adv.","à":"prép.","de":"prép.","avec":"prép.","dans":"prép.","pour":"prép.","je":"pron.","tu":"pron.","il":"pron.","elle":"pron.","nous":"pron.","vous":"pron.","ils":"pron.","elles":"pron.","moi":"pron.","toi":"pron.","le":"art. déf.","la":"art. déf.","les":"art. déf.","l’":"art. déf.","un":"art. indéf.","une":"art. indéf.","du":"art. contracté","des":"art. contracté","au":"art. contracté","aux":"art. contracté","mon":"dét. possessif","ma":"dét. possessif","ton":"dét. possessif","ta":"dét. possessif","votre":"dét. possessif","et":"conj.","ou":"conj.","que":"conj.","bonjour":"interj.","salut":"interj.","allô":"interj.","bonsoir":"interj.","être":"v.","avoir":"v.","habiter":"v.","parler":"v.","venir":"v.","aimer":"v.","comprendre":"v.","répéter":"v.","entrer":"v.","sortir":"v.","passer":"v.","prêter":"v.","donner":"v.","aider":"v.","épeler":"v.","savoir":"v.","suis":"v. · 原形：être","es":"v. · 原形：être","est":"v. · 原形：être","sommes":"v. · 原形：être","êtes":"v. · 原形：être","sont":"v. · 原形：être","ai":"v. · 原形：avoir","as":"v. · 原形：avoir","a":"v. · 原形：avoir","avons":"v. · 原形：avoir","avez":"v. · 原形：avoir","ont":"v. · 原形：avoir","habite":"v. · 原形：habiter","habites":"v. · 原形：habiter","habitez":"v. · 原形：habiter","parle":"v. · 原形：parler","parles":"v. · 原形：parler","parlez":"v. · 原形：parler","viens":"v. · 原形：venir","vient":"v. · 原形：venir","venez":"v. · 原形：venir","aime":"v. · 原形：aimer","aimes":"v. · 原形：aimer","comprends":"v. · 原形：comprendre","comprenez":"v. · 原形：comprendre","peux":"v. · 原形：pouvoir","pouvez":"v. · 原形：pouvoir","sais":"v. · 原形：savoir","sait":"v. · 原形：savoir","appelle":"v. · 原形：appeler","appelles":"v. · 原形：appeler","appelez":"v. · 原形：appeler","dit":"v. · 原形：dire","dis":"v. · 原形：dire","vais":"v. · 原形：aller","vas":"v. · 原形：aller","va":"v. · 原形：aller","allez":"v. · 原形：aller","lundi":"n. m.","mardi":"n. m.","mercredi":"n. m.","jeudi":"n. m.","vendredi":"n. m.","samedi":"n. m.","dimanche":"n. m.","janvier":"n. m.","février":"n. m.","mars":"n. m.","avril":"n. m.","mai":"n. m.","juin":"n. m.","juillet":"n. m.","août":"n. m.","septembre":"n. m.","octobre":"n. m.","novembre":"n. m.","décembre":"n. m."};function posLabel(w){let k=w.toLowerCase().replace(/'/g,'’').replace(/[,.?!]/g,'');if(wordPOS[k])return ' ['+wordPOS[k]+']';if(/^(j’|m’|t’|s’)/.test(k)){let v=wordPOS[k.slice(2)];if(v)return ' ['+v+']'}let base=k.replace(/-(tu|vous|il|elle|ils|elles)$/,'');if(base!==k&&wordPOS[base])return ' ['+wordPOS[base]+' · 倒装]';return '';}
-const $=id=>document.getElementById(id);let questions=false,current;function say(t){if(!window.speechSynthesis){$('status').textContent='浏览器不支持语音，请使用 Safari。';return}speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);current=u;let vs=speechSynthesis.getVoices();let v=vs.find(x=>x.lang.toLowerCase()==='fr-ca')||vs.find(x=>x.lang.toLowerCase().startsWith('fr'));u.lang=v?v.lang:'fr-CA';if(v)u.voice=v;u.rate=Number($('speed').value);$('status').textContent=/^(listen|training)$/.test(activeBlock)?'正在播放…':'播放：'+t;u.onend=()=>{if(current===u)$('status').textContent=''};u.onerror=e=>{if(current===u)$('status').textContent='播放未完成：'+e.error};speechSynthesis.speak(u)}
+const $=id=>document.getElementById(id);let questions=false,current;function say(t){
+ const status=$('status');
+ if(!window.speechSynthesis||!window.SpeechSynthesisUtterance){status.textContent='当前浏览器不支持语音；请在 Safari 打开。';return}
+ const engine=window.speechSynthesis;
+ const target=String(t).trim();
+ if(!target)return;
+ try{
+   if(engine.speaking||engine.pending)engine.cancel();
+   if(engine.paused)engine.resume();
+   let u=new SpeechSynthesisUtterance(target);current=u;
+   let vs=engine.getVoices();
+   let v=vs.find(x=>x.lang.toLowerCase()==='fr-ca')||vs.find(x=>x.lang.toLowerCase().startsWith('fr'));
+   u.lang=v?v.lang:'fr-CA';if(v)u.voice=v;
+   u.rate=Number($('speed').value)||1;
+   status.textContent='🔊 正在请求发音：'+target;
+   u.onstart=()=>{if(current===u)status.textContent='🔊 播放：'+target};
+   u.onend=()=>{if(current===u)status.textContent='✓ 播放完成：'+target};
+   u.onerror=e=>{if(current===u)status.textContent='发音未播放（'+e.error+'），可再点一次或尝试 Safari。'};
+   engine.speak(u);
+ }catch(e){status.textContent='语音启动失败，请重试：'+target}
+}
 function compactList(title,items,sourceDate){if(questions)return;let a=document.createElement('article');a.className='compactList';let bar=document.createElement('div');bar.className='line';let h=document.createElement('strong');h.textContent=title;let play=document.createElement('button');play.textContent='🔊 连续朗读';play.onclick=()=>say(items.map(x=>x[0]).join(', '));bar.append(h,play);a.append(bar);let grid=document.createElement('div');grid.className='compactGrid';for(const [fr,zh] of items){let b=document.createElement('button');b.className='compactWord';let f=document.createElement('span');f.textContent=fr;let z=document.createElement('small');z.className='zh';z.textContent=zh;b.append(f,z);b.onclick=()=>say(fr);grid.append(b)}a.append(grid);let source=document.createElement('small');source.className='source';source.textContent='来源：'+(sourceDate||'2026年11月19日 · Jour 2');a.append(source);$('root').append(a)}
 function splitSeries(title,items){if(title==='日期与月份')return ['月份',items.filter(x=>/^(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)$/.test(x[0]))];if(title==='四季')return ['四季',items.filter(x=>/^(le printemps|l’été|l’automne|l’hiver)$/.test(x[0]))];if(/^(星期|补充练习 · 星期|数字 1–20|补充练习 · 数字 1–100)$/.test(title))return [title,items];return null}
 
