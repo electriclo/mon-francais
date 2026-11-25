@@ -60,14 +60,35 @@ const day5=[
 ],"2026-11-24 · 第4页（手写课堂范围；拼写按标准形式整理，待彩色教材核对）"],
 ["第4页 · 数学运算与分数",[
 ["les mathématiques","数学"],["l’addition","加法（+）"],["la soustraction","减法（−）"],["la multiplication","乘法（×）"],["la division","除法（÷）"],["la fraction","分数"],["un demi (1/2)","二分之一；手写记了 ½"],["un quart (1/4)","四分之一；手写记了 ¼"]
-],"2026-11-24 · 第4页（课堂词汇；分数形式待彩色教材核对）"]
+],"2026-11-24 · 第4页（课堂词汇；分数形式待彩色教材核对）"],
+["第5页 · 教材 p.55 单词排序（10–14题）",[
+["10. Ma fille a huit ans et mon fils a dix ans.","我女儿八岁，儿子十岁。"],
+["11. Tu es marié ? Et toi ?","你结婚了吗？你呢？"],
+["12. Non, moi, je suis célibataire.","不，我单身。"],
+["13. Maria, quelle langue tu parles ?","Maria，你说什么语言？按老师绿色批注的问句语序。"],
+["14. Je parle un peu français et espagnol.","我会说一点法语和西班牙语；按教材所给词语排序。"]
+],"2026-11-24 · 第5页 · 彩色教材 p.55"],
+["第5页 · 教材 p.55 单词排序（15–19题）",[
+["15. Ah ! Tu es Espagnole ?","啊！你是西班牙人吗？"],
+["16. Non, non, je viens du Chili.","不，不，我来自智利。"],
+["17. Je suis Chilienne.","我是智利人（女性）。"],
+["18. Et toi, tu es Français ?","你呢，你是法国人吗？"],
+["19. Je suis Québécois, mais je parle français.","我是魁北克人，但是我说法语。注意 suis 表示身份、parle 表示说语言。"]
+],"2026-11-24 · 第5页 · 彩色教材 p.55"],
+["第5页 · 问句结构（教材练习）",[
+["Quelle langue tu parles ?","Quelle + 名词 langue + tu parles；老师绿色批注。"],
+["Quelle est ta profession ?","Quelle + est + ta profession；与上一页结构对照。"],
+["Tu es marié ?","原语序、问号和语调表示问句。"],
+["Tu es Espagnole ?","原语序、问号和语调表示问句。"],
+["Tu es Français ?","原语序、问号和语调表示问句。"]
+],"2026-11-24 · 第5页（只整理课堂已学句型）"]
 ];
 const datedLessons=[{date:'2026-11-19',day:2,sections:lessons.p26},{date:'2026-11-20',day:3,sections:day3},{date:'2026-11-23',day:4,sections:day4},{date:'2026-11-24',day:5,sections:day5}];
 function localDate(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 function todaysLesson(){return datedLessons.find(x=>x.date===localDate())}
 function archiveTopics(){if(localDate()<='2026-11-20')return;const add=(b,title,ids,rs=[])=>blocks[b].topics.push([title,[],null,ids,rs]);function extend(b,i,ids,rs=[]){blocks[b].topics[i][3]=ids;blocks[b].topics[i][4]=rs}
 extend('vocab',0,[12]);extend('vocab',2,[10]);extend('vocab',3,[14,15,18]);blocks.vocab.topics[5]=['数字 1–100',[],null,[17]];add('vocab','职业',[2]);add('vocab','家庭与婚姻',[7,9]);extend('grammar',0,[5,11]);extend('grammar',1,[],[5]);extend('grammar',2,[],[6]);extend('grammar',3,[],[4]);add('grammar','Être 与 Avoir',[],[2,3]);add('grammar','定冠词与省音',[],[0,1]);extend('dialog',1,[0,1,13]);extend('dialog',2,[16]);extend('dialog',3,[14,15]);add('dialog','家庭与婚姻状况',[7,9]);extend('sound',2,[3]);add('review','优先：Être / Avoir 与家庭问答',[6,8,7,9]);add('review','数字、星期、月份、四季',[17,18,14,15]);}
-archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–4页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
+archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–5页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
 let activeBlock='',activeTopic=-1;let listenIndex=0,listenShown=false;const listenPool=Array.from(new Map([...lessons.p26,...day3].flatMap(s=>s[1]).filter(x=>typeof x[0]==='string'&&x[0].split(/\s+/).length>=2&&x[0].split(/\s+/).length<=14&&/[.!?]$/.test(x[0])&&!/[\/…]/.test(x[0])).map(x=>[x[0],x])).values());function renderListening(){let m=$('menu'),root=$('root');m.replaceChildren();root.replaceChildren();$('controls').hidden=false;$('focus').hidden=true;menuButton(m,'‹ 首页','',()=>{if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';navigate('')});let h=document.createElement('h2');h.textContent='🎧 听力练习 · Écoute';m.append(h);let p=document.createElement('p');p.textContent='先听，听不清可以重复；准备好再看原文。不计分。';root.append(p);if(!listenPool.length)return;let [fr,zh]=listenPool[listenIndex];let card=document.createElement('article');let count=document.createElement('p');count.textContent=(listenIndex+1)+' / '+listenPool.length;card.append(count);function btn(label,fn){let b=document.createElement('button');b.textContent=label;b.onclick=fn; b.style.margin='4px';card.append(b)}btn('🔊 播放 / 重听',()=>say(fr));btn(listenShown?'隐藏原文':'显示原文与中文',()=>{listenShown=!listenShown;renderListening()});let answer=document.createElement('div');answer.style.cssText='padding:16px 0;font-size:1.2em';answer.textContent=listenShown?fr:'••••••••';card.append(answer);if(listenShown){let z=document.createElement('p');z.textContent=zh;card.append(z)}function step(i){if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';listenIndex=(i+listenPool.length)%listenPool.length;listenShown=false;renderListening()}btn('上一句',()=>step(listenIndex-1));btn('下一句',()=>step(listenIndex+1));btn('随机一句',()=>step(listenIndex+1+Math.floor(Math.random()*Math.max(1,listenPool.length-1))));root.append(card)}
 function topicData(t){if(t[2]==='day5')return t[3].map(i=>day5[i]);if(t[2]==='day4')return t[3].map(i=>day4[i]);if(t[2]==='day4rules')return t[3].map(i=>day4rules[i]);let rows=t[1].map(i=>lessons.p26[i]);if(t[2]==='languages')rows.push(['语言词汇',lessons.p26[6][1].map(([f,z])=>[f.replace(/^Je parle /,'').replace(/\.$/,''),z.replace(/^我说/,'').replace(/。$/,'')])]);if(t[2]==='countries')rows.push(['国家名称',[['Syrie','叙利亚'],['Biélorussie','白俄罗斯'],['Chine','中国'],['Ukraine','乌克兰'],['Pakistan','巴基斯坦'],['Brésil','巴西'],['Mexique','墨西哥'],['États-Unis','美国'],['Salvador','萨尔瓦多'],['Somalie','索马里'],['Chili','智利']]]);if(t[2]==='allrules')rows.push(...lessons.rules);else if(/^r\d$/.test(t[2]||''))rows.push(lessons.rules[Number(t[2][1])]);rows.push(...(t[3]||[]).map(i=>day3[i]),...(t[4]||[]).map(i=>day3rules[i]));return rows}
 function navigate(b,i=-1){activeBlock=b;activeTopic=i;questions=false;$('focus').textContent='只看问句';render();window.scrollTo(0,0)}
@@ -112,6 +133,9 @@ const samples=[
 for(const sample of samples){let line=document.createElement('div');line.style.marginBottom='16px';let full=document.createElement('button');full.className='word';full.textContent='🔊 '+sample.sentence;full.onclick=()=>say(sample.sentence);line.append(full);let meaning=document.createElement('p');meaning.className='note';meaning.textContent=sample.meaning;line.append(meaning);let pieces=document.createElement('div');pieces.className='compactGrid';for(const [fr,zh] of sample.parts){let b=document.createElement('button');b.className='compactWord';let f=document.createElement('span');f.textContent=fr;let z=document.createElement('small');z.className='zh';z.textContent=zh;b.append(f,z);b.onclick=()=>say(fr);pieces.append(b)}line.append(pieces);section.append(line)}
 root.append(section);
 }
+mk('今日第5页 · Quel 问句对照',['问句','动词／结构'],[['Quelle est ta profession ?','est（是）'],['Maria, quelle langue tu parles ?','parles（说）']],'教材 p.55 第13题按老师绿色批注；Quelle 后面不一定紧跟 est，要看问什么。');
+mk('今日第5页 · 陈述语序直接提问',['题号','问句'],[['11','Tu es marié ?'],['15','Ah ! Tu es Espagnole ?'],['18','Et toi, tu es Français ?']],'教材 p.55：这三题语序不倒装，直接用疑问语调。');
+mk('今日第5页 · Être ↔ Parler',['Être：身份','Parler：语言'],[['Je suis Québécois.','Je parle français.']],'教材 p.55 第19题：身份用 suis，语言用 parle。');
 mk('今日第4页 · 孩子排行：阳性 ↔ 阴性',['阳性','阴性','中文'],[['l’aîné','l’aînée','最大的孩子'],['le cadet','la cadette','较小的孩子'],['le benjamin','la benjamine','最小的孩子']],'11月24日第4页。cadet 不是固定指最小，benjamin 指最小。');
 mk('今日第4页 · 数学词汇',['法语','中文'],[['l’addition','加法 +'],['la soustraction','减法 −'],['la multiplication','乘法 ×'],['la division','除法 ÷'],['la fraction','分数 ½、¼']],'11月24日第4页：按课堂已记录的词汇整理。');
 mk('今日第3页 · 身体感觉：J’ai + 表达',['法语','中文'],[['J’ai faim.','我饿了'],['J’ai soif.','我渴了'],['J’ai froid.','我觉得冷'],['J’ai chaud.','我觉得热'],['J’ai besoin de…','我需要……'],['J’ai un problème.','我有一个问题']],'本页固定表达；都用 avoir，不用 être。');
