@@ -68,6 +68,19 @@ mk('⑤ 婚姻状况 · 阳性 ↔ 阴性',['阳性','阴性'],[['marié','mari�
 mk('⑥ 考试易混淆 · 并排记忆',['形式 A','形式 B'],[['Tu es','Tu as'],['Nous sommes','On est'],['Nous avons','On a'],['J’ai un enfant.','Je n’ai pas d’enfant.'],['Ils sont','Ils ont']]);
 
 // Tables below are restricted to country, nationality, grammar and question patterns already present in the class notes/textbook sections.
+{
+const section=document.createElement('article');section.className='compactList';
+let heading=document.createElement('h2');heading.textContent='🔊 11月24日 · 问句拆解点读';section.append(heading);
+let intro=document.createElement('p');intro.textContent='先点整句听语调，再点每一块确认读音。';section.append(intro);
+const samples=[
+{sentence:'Es-tu marié ?',meaning:'你结婚了吗？',parts:[['Es','是（动词）'],['tu','你'],['marié','已婚']]},
+{sentence:'Est-ce que tu es marié ?',meaning:'你结婚了吗？',parts:[['Est-ce que','问句开头'],['tu','你'],['es','是'],['marié','已婚']]},
+{sentence:'Quelle est ta profession ?',meaning:'你的职业是什么？',parts:[['Quelle','什么（阴性）'],['est','是'],['ta','你的'],['profession','职业']]},
+{sentence:'Quel est ton état civil ?',meaning:'你的婚姻状况是什么？',parts:[['Quel','什么（阳性）'],['est','是'],['ton','你的'],['état civil','婚姻状况']]}
+];
+for(const sample of samples){let line=document.createElement('div');line.style.marginBottom='16px';let full=document.createElement('button');full.className='word';full.textContent='🔊 '+sample.sentence;full.onclick=()=>say(sample.sentence);line.append(full);let meaning=document.createElement('p');meaning.className='note';meaning.textContent=sample.meaning;line.append(meaning);let pieces=document.createElement('div');pieces.className='compactGrid';for(const [fr,zh] of sample.parts){let b=document.createElement('button');b.className='compactWord';let f=document.createElement('span');f.textContent=fr;let z=document.createElement('small');z.className='zh';z.textContent=zh;b.append(f,z);b.onclick=()=>say(fr);pieces.append(b)}line.append(pieces);section.append(line)}
+root.append(section);
+}
 mk('今日第1页 · 问句开头对照',['结构','例句','要问什么'],[['Quelle est ta… ?','Quelle est ta profession ?','职业'],['Quel est ton… ?','Quel est ton état civil ?','婚姻状况'],['Es-tu… ?','Es-tu marié ?','是否结婚'],['Est-ce que… ?','Est-ce que tu es marié ?','是否结婚']],'Quelle / Quel = 什么（随名词阴阳性变化）；Es-tu = 动词放前面；Est-ce que = 固定问句开头。2026-11-24 第1页。');
 mk('⑦ 国家名称 ↔ 来源 · de / du / des / d’',['国家名称','Je viens…','中文'],[['le Canada','du Canada','加拿大'],['le Brésil','du Brésil','巴西'],['le Mexique','du Mexique','墨西哥'],['le Pérou','du Pérou','秘鲁'],['le Danemark','du Danemark','丹麦'],['la Chine','de Chine','中国'],['la France','de France','法国'],['la Belgique','de Belgique','比利时'],['l’Italie','d’Italie','意大利'],['l’Inde','d’Inde','印度'],['l’Ukraine','d’Ukraine','乌克兰'],['les États-Unis','des États-Unis','美国'],['les Philippines','des Philippines','菲律宾'],['Cuba','de Cuba','古巴'],['Singapour','de Singapour','新加坡']],'对照教材国家名称和来源形式；du = de + le，des = de + les。');
 mk('⑧ 国籍 · 阳性 ↔ 阴性',['阳性','阴性','中文'],[['canadien','canadienne','加拿大人'],['chinois','chinoise','中国人'],['français','française','法国人'],['américain','américaine','美国人'],['italien','italienne','意大利人'],['brésilien','brésilienne','巴西人'],['péruvien','péruvienne','秘鲁人'],['roumain','roumaine','罗马尼亚人'],['hongrois','hongroise','匈牙利人'],['suédois','suédoise','瑞典人'],['grec','grecque','希腊人'],['belge','belge','比利时人'],['russe','russe','俄罗斯人']]);
