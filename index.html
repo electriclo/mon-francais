@@ -99,14 +99,43 @@ const day5=[
 ["Quel est ton nom ?","Quel 在句首；问姓名。"],
 ["Tu as des enfants ?","直接用陈述句顺序提问；孩子数量用 avoir。"],
 ["Ils ont quel âge ?","Quel 在句中；问年龄，用 avoir。"]
-],"2026-11-24 · 第6页 · 依据彩色教材与老师绿色批改"]
+],"2026-11-24 · 第6页 · 依据彩色教材与老师绿色批改"],
+["第7页 · 教材 p.17：较口语的个人信息问句",[
+["Vous vous appelez comment ?","您叫什么名字？答：Jérôme（8）。"],
+["C’est quoi votre date de naissance ?","您的出生日期是什么？答：Le 22 septembre 1999（6）。"],
+["C’est quoi votre nom de famille ?","您姓什么？答：Bergeron（7）。"],
+["Votre adresse courriel ?","您的电子邮箱？答：jbergeron@mididier.qc.ca（2）；老师标记 email。"],
+["Votre numéro de téléphone cellulaire ?","您的手机号码？答：450 348-1384（1）。"],
+["C’est quoi votre adresse ?","您的地址是什么？答：45, rue du Prince, Magog（5）。"],
+["C’est quoi votre code postal ?","您的邮编是什么？答：J8P 5T9（9）。"],
+["Vous avez des enfants ?","您有孩子吗？答：Non, je n’ai pas d’enfants（4）。"],
+["Vous êtes marié ?","您结婚了吗？答：Non, je suis célibataire（3）。"]
+],"2026-11-24 · 第7页 · 彩色教材 p.17 上半部分；配对 a–i：8、6、7、2、1、5、9、4、3"],
+["第7页 · 教材 p.17：较正式的个人信息问句",[
+["Quelle est votre date de naissance ?","您的出生日期是什么？答：Le 17 février 1968（8）。"],
+["Quel est votre prénom ?","您的名字是什么？答：Marie-Claude（2）。"],
+["Quel est votre nom de famille ?","您的姓氏是什么？答：Bernier（9）。"],
+["Quel est votre numéro de téléphone ?","您的电话号码是什么？答：514 347-1837（3）。"],
+["Quelle est votre adresse ?","您的地址是什么？答：5638, rue Bélisle, Sainte-Martine（6）。"],
+["Quel est votre code postal ?","您的邮编是什么？答：H2Z 4P6（1）。"],
+["Quel est votre état civil ?","您的婚姻／伴侣关系状况是什么？答：Je suis conjointe de fait（5）。"],
+["Quel est votre statut ?","您的身份／身份状态是什么？答：Je suis citoyenne canadienne（7）。"],
+["Avez-vous des enfants ?","您有孩子吗？答：Oui, j’ai deux filles（4）。"]
+],"2026-11-24 · 第7页 · 彩色教材 p.17 下半部分；配对 a–i：8、2、9、3、6、1、5、7、4"],
+["第7页 · 问句结构对照与课堂重点",[
+["C’est quoi votre adresse ? / Quelle est votre adresse ?","两种问地址的方式：较口语 ↔ 较正式。"],
+["C’est quoi votre code postal ? / Quel est votre code postal ?","Quel 配阳性名词 code。"],
+["C’est quoi votre date de naissance ? / Quelle est votre date de naissance ?","Quelle 配阴性名词 date。"],
+["Vous avez des enfants ? / Avez-vous des enfants ?","不倒装 ↔ 倒装：两种方式都在询问有无孩子。"],
+["Votre adresse courriel ?","courriel 是电子邮箱；普通 adresse 是邮寄／街道地址。"]
+],"2026-11-24 · 第7页 · 以彩色印刷教材为准；两组问句均使用 vous，区别主要在表达方式"]
 ];
 const datedLessons=[{date:'2026-11-19',day:2,sections:lessons.p26},{date:'2026-11-20',day:3,sections:day3},{date:'2026-11-23',day:4,sections:day4},{date:'2026-11-24',day:5,sections:day5}];
 function localDate(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 function todaysLesson(){return datedLessons.find(x=>x.date===localDate())}
 function archiveTopics(){if(localDate()<='2026-11-20')return;const add=(b,title,ids,rs=[])=>blocks[b].topics.push([title,[],null,ids,rs]);function extend(b,i,ids,rs=[]){blocks[b].topics[i][3]=ids;blocks[b].topics[i][4]=rs}
 extend('vocab',0,[12]);extend('vocab',2,[10]);extend('vocab',3,[14,15,18]);blocks.vocab.topics[5]=['数字 1–100',[],null,[17]];add('vocab','职业',[2]);add('vocab','家庭与婚姻',[7,9]);extend('grammar',0,[5,11]);extend('grammar',1,[],[5]);extend('grammar',2,[],[6]);extend('grammar',3,[],[4]);add('grammar','Être 与 Avoir',[],[2,3]);add('grammar','定冠词与省音',[],[0,1]);extend('dialog',1,[0,1,13]);extend('dialog',2,[16]);extend('dialog',3,[14,15]);add('dialog','家庭与婚姻状况',[7,9]);extend('sound',2,[3]);add('review','优先：Être / Avoir 与家庭问答',[6,8,7,9]);add('review','数字、星期、月份、四季',[17,18,14,15]);}
-archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–6页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
+archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–7页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.dialog.topics.push(['11月24日 · 教材 p.17 个人信息问句',[],'day5',[16]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
 let activeBlock='',activeTopic=-1;let listenIndex=0,listenShown=false;const listenPool=Array.from(new Map([...lessons.p26,...day3].flatMap(s=>s[1]).filter(x=>typeof x[0]==='string'&&x[0].split(/\s+/).length>=2&&x[0].split(/\s+/).length<=14&&/[.!?]$/.test(x[0])&&!/[\/…]/.test(x[0])).map(x=>[x[0],x])).values());function renderListening(){let m=$('menu'),root=$('root');m.replaceChildren();root.replaceChildren();$('controls').hidden=false;$('focus').hidden=true;menuButton(m,'‹ 首页','',()=>{if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';navigate('')});let h=document.createElement('h2');h.textContent='🎧 听力练习 · Écoute';m.append(h);let p=document.createElement('p');p.textContent='先听，听不清可以重复；准备好再看原文。不计分。';root.append(p);if(!listenPool.length)return;let [fr,zh]=listenPool[listenIndex];let card=document.createElement('article');let count=document.createElement('p');count.textContent=(listenIndex+1)+' / '+listenPool.length;card.append(count);function btn(label,fn){let b=document.createElement('button');b.textContent=label;b.onclick=fn; b.style.margin='4px';card.append(b)}btn('🔊 播放 / 重听',()=>say(fr));btn(listenShown?'隐藏原文':'显示原文与中文',()=>{listenShown=!listenShown;renderListening()});let answer=document.createElement('div');answer.style.cssText='padding:16px 0;font-size:1.2em';answer.textContent=listenShown?fr:'••••••••';card.append(answer);if(listenShown){let z=document.createElement('p');z.textContent=zh;card.append(z)}function step(i){if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';listenIndex=(i+listenPool.length)%listenPool.length;listenShown=false;renderListening()}btn('上一句',()=>step(listenIndex-1));btn('下一句',()=>step(listenIndex+1));btn('随机一句',()=>step(listenIndex+1+Math.floor(Math.random()*Math.max(1,listenPool.length-1))));root.append(card)}
 function topicData(t){if(t[2]==='day5')return t[3].map(i=>day5[i]);if(t[2]==='day4')return t[3].map(i=>day4[i]);if(t[2]==='day4rules')return t[3].map(i=>day4rules[i]);let rows=t[1].map(i=>lessons.p26[i]);if(t[2]==='languages')rows.push(['语言词汇',lessons.p26[6][1].map(([f,z])=>[f.replace(/^Je parle /,'').replace(/\.$/,''),z.replace(/^我说/,'').replace(/。$/,'')])]);if(t[2]==='countries')rows.push(['国家名称',[['Syrie','叙利亚'],['Biélorussie','白俄罗斯'],['Chine','中国'],['Ukraine','乌克兰'],['Pakistan','巴基斯坦'],['Brésil','巴西'],['Mexique','墨西哥'],['États-Unis','美国'],['Salvador','萨尔瓦多'],['Somalie','索马里'],['Chili','智利']]]);if(t[2]==='allrules')rows.push(...lessons.rules);else if(/^r\d$/.test(t[2]||''))rows.push(lessons.rules[Number(t[2][1])]);rows.push(...(t[3]||[]).map(i=>day3[i]),...(t[4]||[]).map(i=>day3rules[i]));return rows}
 function navigate(b,i=-1){activeBlock=b;activeTopic=i;questions=false;$('focus').textContent='只看问句';render();window.scrollTo(0,0)}
@@ -151,6 +180,8 @@ const samples=[
 for(const sample of samples){let line=document.createElement('div');line.style.marginBottom='16px';let full=document.createElement('button');full.className='word';full.textContent='🔊 '+sample.sentence;full.onclick=()=>say(sample.sentence);line.append(full);let meaning=document.createElement('p');meaning.className='note';meaning.textContent=sample.meaning;line.append(meaning);let pieces=document.createElement('div');pieces.className='compactGrid';for(const [fr,zh] of sample.parts){let b=document.createElement('button');b.className='compactWord';let f=document.createElement('span');f.textContent=fr;let z=document.createElement('small');z.className='zh';z.textContent=zh;b.append(f,z);b.onclick=()=>say(fr);pieces.append(b)}line.append(pieces);section.append(line)}
 root.append(section);
 }
+mk('今日第7页 · 口语 ↔ 正式个人信息问句',['较口语的表达','较正式的表达'],[['C’est quoi votre nom de famille ?','Quel est votre nom de famille ?'],['C’est quoi votre date de naissance ?','Quelle est votre date de naissance ?'],['C’est quoi votre adresse ?','Quelle est votre adresse ?'],['C’est quoi votre code postal ?','Quel est votre code postal ?'],['Vous avez des enfants ?','Avez-vous des enfants ?']],'教材 p.17：两列都用 vous；比较问句结构，而不是简单比较 tu 和 vous。');
+mk('今日第7页 · Quel ↔ Quelle（名词阴阳性）',['Quel：阳性名词','Quelle：阴性名词'],[['Quel est votre prénom ?','Quelle est votre adresse ?'],['Quel est votre nom de famille ?','Quelle est votre date de naissance ?'],['Quel est votre code postal ?','']],'以本页印刷教材原句为准。');
 mk('今日第6页 · Quel 的位置 ↔ 直接提问',['形式','教材原句','含义'],[['Quel 在句首','Quel est ton nom ?','问名字'],['Quel 在句中','Ils ont quel âge ?','问年龄'],['陈述句语序','Tu as des enfants ?','问有没有孩子']],'教材 p.54 第1、7、9题；以老师绿色批改为准。');
 mk('今日第5页 · Quel 问句对照',['问句','动词／结构'],[['Quelle est ta profession ?','est（是）'],['Maria, quelle langue tu parles ?','parles（说）']],'教材 p.55 第13题按老师绿色批注；Quelle 后面不一定紧跟 est，要看问什么。');
 mk('今日第5页 · 陈述语序直接提问',['题号','问句'],[['11','Tu es marié ?'],['15','Ah ! Tu es Espagnole ?'],['18','Et toi, tu es Français ?']],'教材 p.55：这三题语序不倒装，直接用疑问语调。');
