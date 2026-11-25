@@ -194,6 +194,36 @@ function resetBlindDemo(){
  for(let i=blindOrder.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[blindOrder[i],blindOrder[j]]=[blindOrder[j],blindOrder[i]]}
  blindAt=0;blindRevealed=false
 }
+function blindFrenchWords(text,parent){
+ // Individual French orthographic words are playable, including hyphenated inversions.
+ const pieces=String(text).split(/(\s+)/);
+ for(const piece of pieces){
+   if(!piece)continue;
+   if(/^\s+$/.test(piece)){parent.append(document.createTextNode(piece));continue}
+   const trimmed=piece.replace(/^[^\p{L}]+|[^\p{L}]+$/gu,'');
+   if(!trimmed){parent.append(document.createTextNode(piece));continue}
+   const lead=piece.slice(0,piece.indexOf(trimmed));
+   const tail=piece.slice(piece.indexOf(trimmed)+trimmed.length);
+   if(lead)parent.append(document.createTextNode(lead));
+   const b=document.createElement('button');
+   b.className='word';
+   b.style.cssText='display:inline;line-height:1.7;padding:2px 4px;white-space:normal';
+   b.textContent=trimmed;
+   b.setAttribute('aria-label','播放法语单词 '+trimmed);
+   b.onclick=()=>say(trimmed);
+   parent.append(b);
+   if(tail)parent.append(document.createTextNode(tail));
+ }
+}
+function blindFrenchInNote(text,parent){
+ // Only explicitly marked Latin-script terms in Chinese explanations are clickable.
+ const bits=String(text).split(/([A-Za-zÀ-ÿŒœÆæ][A-Za-zÀ-ÿŒœÆæ’'\-]*(?:\s*\/\s*[A-Za-zÀ-ÿŒœÆæ][A-Za-zÀ-ÿŒœÆæ’'\-]*)?)/g);
+ for(const bit of bits){
+   if(!bit)continue;
+   if(/^[A-Za-zÀ-ÿŒœÆæ]/.test(bit))blindFrenchWords(bit,parent);
+   else parent.append(document.createTextNode(bit));
+ }
+}
 function renderBlindDemo(){
  let m=$('menu'),root=$('root');m.replaceChildren();root.replaceChildren();$('controls').hidden=false;$('focus').hidden=true;
  menuButton(m,'‹ 首页','',()=>{if(window.speechSynthesis)speechSynthesis.cancel();navigate('')});
@@ -208,15 +238,16 @@ function renderBlindDemo(){
  button('🔁 再听一次',()=>say(q.fr),'margin:5px 4px');
  let answer=document.createElement('div');answer.style.cssText='margin:16px 0;text-align:left;line-height:1.65';
  if(blindRevealed){
-   let fr=document.createElement('h2');fr.textContent=q.fr;answer.append(fr);
+   let fr=document.createElement('h2');blindFrenchWords(q.fr,fr);answer.append(fr);
+   let replay=document.createElement('button');replay.textContent='🔊 听整句';replay.onclick=()=>say(q.fr);answer.append(replay);
    let zh=document.createElement('p');zh.textContent=q.zh;answer.append(zh);
    let note=document.createElement('strong');note.textContent='句子结构';answer.append(note);
    let table=document.createElement('table');table.className='studyTable';
-   let tr=table.insertRow();for(const [part] of q.parts){let th=document.createElement('th');let b=document.createElement('button');b.className='word';b.textContent=part;b.onclick=()=>say(part);th.append(b);tr.append(th)}
+   let tr=table.insertRow();for(const [part] of q.parts){let th=document.createElement('th');let b=document.createElement('button');b.className='word';b.textContent='🔊 整组';b.style.cssText='font-size:13px;margin-bottom:5px';b.onclick=()=>say(part);th.append(b);th.append(document.createElement('div'));blindFrenchWords(part,th.lastChild);tr.append(th)}
    tr=table.insertRow();for(const [,meaning] of q.parts){let td=tr.insertCell();td.textContent=meaning}
    answer.append(table);
-   let explanation=document.createElement('p');explanation.className='note';explanation.textContent=q.why;answer.append(explanation);
-   let reply=document.createElement('p');reply.textContent='参考回答：'+q.answer;answer.append(reply);
+   let explanation=document.createElement('p');explanation.className='note';blindFrenchInNote(q.why,explanation);answer.append(explanation);
+   let reply=document.createElement('p');reply.append(document.createTextNode('参考回答：'));blindFrenchWords(q.answer,reply);answer.append(reply);
    let src=document.createElement('small');src.textContent='课堂来源：'+q.source;answer.append(src);
  }else{
    let placeholder=document.createElement('p');placeholder.textContent='法语原句、中文与语法解释已隐藏';placeholder.style.cssText='padding:25px 5px;opacity:.65';answer.append(placeholder)
