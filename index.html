@@ -187,12 +187,57 @@ const day6=[
 ["mille neuf cent vingt-six","1926；本页写了这个数字，结合上一页百位／千位数字知识复习。"]
 ],"2026-11-25 · 第2页 · 手写课堂笔记；底部划掉的词暂不录入"]
 ];
+
+const verbClassRows={
+ etre:[
+ ['Tu es à la maison.','Tu n’es pas à la maison.','Es-tu à la maison ?','你在家吗？'],
+ ['Il est canadien.','Il n’est pas canadien.','Est-il canadien ?','他是加拿大人吗？'],
+ ['Elle est fatiguée.','Elle n’est pas fatiguée.','Est-elle fatiguée ?','她累了吗？'],
+ ['Nous sommes en classe.','Nous ne sommes pas en classe.','Sommes-nous en classe ?','我们在教室吗？'],
+ ['Vous êtes en retard.','Vous n’êtes pas en retard.','Êtes-vous en retard ?','您迟到了吗？'],
+ ['Ils sont au travail.','Ils ne sont pas au travail.','Sont-ils au travail ?','他们在上班吗？'],
+ ['Je suis professeur(e).','Je ne suis pas professeur(e).','Suis-je professeur(e) ?','我是老师吗？'],
+ ['Elles sont françaises.','Elles ne sont pas françaises.','Sont-elles françaises ?','她们是法国人吗？'],
+ ['Vous êtes à Montréal.','Vous n’êtes pas à Montréal.','Êtes-vous à Montréal ?','您在蒙特利尔吗？'],
+ ['Il est malade.','Il n’est pas malade.','Est-il malade ?','他生病了吗？'],
+ ['Nous sommes prêts.','Nous ne sommes pas prêts.','Sommes-nous prêts ?','我们准备好了吗？'],
+ ['Ils sont à la maison.','Ils ne sont pas à la maison.','Sont-ils à la maison ?','他们在家吗？'],
+ ['Tu es en vacances.','Tu n’es pas en vacances.','Es-tu en vacances ?','你在休假吗？'],
+ ['Elle est québécoise.','Elle n’est pas québécoise.','Est-elle québécoise ?','她是魁北克人吗？'],
+ ['Je suis en retard.','Je ne suis pas en retard.','Suis-je en retard ?','我迟到了吗？'],
+ ['Nous sommes au travail.','Nous ne sommes pas au travail.','Sommes-nous au travail ?','我们在上班吗？']
+ ],
+ avoir:[
+ ['J’ai un frère.','Je n’ai pas de frère.','Ai-je un frère ?','我有一个兄弟吗？'],
+ ['Tu as une voiture.','Tu n’as pas de voiture.','As-tu une voiture ?','你有车吗？'],
+ ['Il a une sœur.','Il n’a pas de sœur.','A-t-il une sœur ?','他有姐妹吗？'],
+ ['Elle a un rendez-vous.','Elle n’a pas de rendez-vous.','A-t-elle un rendez-vous ?','她有预约吗？'],
+ ['Nous avons des cours.','Nous n’avons pas de cours.','Avons-nous des cours ?','我们有课吗？'],
+ ['Vous avez des enfants.','Vous n’avez pas d’enfants.','Avez-vous des enfants ?','您有孩子吗？'],
+ ['Ils ont un chien.','Ils n’ont pas de chien.','Ont-ils un chien ?','他们有狗吗？'],
+ ['Elles ont du travail.','Elles n’ont pas de travail.','Ont-elles du travail ?','她们有工作要做吗？'],
+ ['Vous avez une question.','Vous n’avez pas de question.','Avez-vous une question ?','您有问题吗？'],
+ ['Il a un frère.','Il n’a pas de frère.','A-t-il un frère ?','他有兄弟吗？'],
+ ['Nous avons assez de temps.','Nous n’avons pas assez de temps.','Avons-nous assez de temps ?','我们有足够时间吗？'],
+ ['Elle a une voiture.','Elle n’a pas de voiture.','A-t-elle une voiture ?','她有车吗？'],
+ ['Tu as des cours aujourd’hui.','Tu n’as pas de cours aujourd’hui.','As-tu des cours aujourd’hui ?','你今天有课吗？'],
+ ['Nous avons une maison.','Nous n’avons pas de maison.','Avons-nous une maison ?','我们有房子吗？'],
+ ['J’ai un rendez-vous.','Je n’ai pas de rendez-vous.','Ai-je un rendez-vous ?','我有预约吗？'],
+ ['Ils ont des enfants.','Ils n’ont pas d’enfants.','Ont-ils des enfants ?','他们有孩子吗？']
+ ]
+};
+day6.push(
+ ['第3页 · 教材 ÊTRE · 肯定／否定／倒装问句',verbClassRows.etre.flatMap(([yes,no,q,zh],i)=>[[String(i+1)+'. '+yes,'肯定'],[no,'否定'],[q,zh]]),'2026-11-25 · 第3页 · 印刷教材 Exercice 1 — ÊTRE（16题；练习答案按印刷句型整理）'],
+ ['第4页 · 教材 AVOIR · 肯定／否定／倒装问句',verbClassRows.avoir.flatMap(([yes,no,q,zh],i)=>[[String(i+1)+'. '+yes,'肯定'],[no,'否定'],[q,zh]]),'2026-11-25 · 第4页 · 印刷教材 Exercice 2 — AVOIR（16题；练习答案按印刷句型整理）'],
+ ['教材规则 · 三种形式对照',[['Tu es étudiant. → Tu n’es pas étudiant. → Es-tu étudiant ?','Être：ne / n’ + 动词 + pas；倒装时动词在主语前。'],['Tu as une voiture. → Tu n’as pas de voiture. → As-tu une voiture ?','Avoir：否定句中 un / une / des → de / d’（本课普通用法）。'],['Il a une sœur. → A-t-il une sœur ?','il / elle 倒装时，在 a 和 il/elle 之间加入 -t-。'],['Ils ont des enfants. → Ils n’ont pas d’enfants. → Ont-ils des enfants ?','des 在否定中变为 d’（元音开头）。'],['Nous avons assez de temps. → Nous n’avons pas assez de temps.','本题保留 assez de，不写 pas d’assez。']],'2026-11-25 · 教材 ÊTRE / AVOIR au présent；规则仅限本课范围']
+);
+
 const datedLessons=[{date:'2026-11-19',day:2,sections:lessons.p26},{date:'2026-11-20',day:3,sections:day3},{date:'2026-11-23',day:4,sections:day4},{date:'2026-11-24',day:5,sections:day5},{date:'2026-11-25',day:6,sections:day6}];
 function localDate(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 function todaysLesson(){return datedLessons.find(x=>x.date===localDate())}
 function archiveTopics(){if(localDate()<='2026-11-20')return;const add=(b,title,ids,rs=[])=>blocks[b].topics.push([title,[],null,ids,rs]);function extend(b,i,ids,rs=[]){blocks[b].topics[i][3]=ids;blocks[b].topics[i][4]=rs}
 extend('vocab',0,[12]);extend('vocab',2,[10]);extend('vocab',3,[14,15,18]);blocks.vocab.topics[5]=['数字 1–100',[],null,[17]];add('vocab','职业',[2]);add('vocab','家庭与婚姻',[7,9]);extend('grammar',0,[5,11]);extend('grammar',1,[],[5]);extend('grammar',2,[],[6]);extend('grammar',3,[],[4]);add('grammar','Être 与 Avoir',[],[2,3]);add('grammar','定冠词与省音',[],[0,1]);extend('dialog',1,[0,1,13]);extend('dialog',2,[16]);extend('dialog',3,[14,15]);add('dialog','家庭与婚姻状况',[7,9]);extend('sound',2,[3]);add('review','优先：Être / Avoir 与家庭问答',[6,8,7,9]);add('review','数字、星期、月份、四季',[17,18,14,15]);}
-archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月25日 · 第1–2页 · 邮编、数字与出生日期',[],'day6',[0,1,2,3]]);blocks.dialog.topics.push(['11月25日 · 邮编问答',[],'day6',[0]]);blocks.vocab.topics.push(['11月25日 · 数字与发音词汇',[],'day6',[1,2]]);blocks.vocab.topics.push(['11月25日 · 出生日期和出生年份',[],'day6',[3]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–9页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.dialog.topics.push(['11月24日 · 教材 p.17 个人信息问句',[],'day5',[16]]);blocks.dialog.topics.push(['11月24日 · 电话与住址问句',[],'day5',[17,19]]);blocks.dialog.topics.push(['11月24日 · 教材 p.3 报名登记对话',[],'day5',[20,21]]);blocks.vocab.topics.push(['11月24日 · 地址与登记词汇',[],'day5',[18]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
+archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月25日 · 第1–4页 · 含重点 Être / Avoir',[],'day6',[0,1,2,3,4,5,6]]);blocks.dialog.topics.push(['11月25日 · 邮编问答',[],'day6',[0]]);blocks.vocab.topics.push(['11月25日 · 数字与发音词汇',[],'day6',[1,2]]);blocks.vocab.topics.push(['11月25日 · 出生日期和出生年份',[],'day6',[3]]);blocks.grammar.topics.unshift(['11月25日 · Être / Avoir 三种形式',[],'day6',[4,5,6]]);blocks.review.topics.unshift(['重点 · 11月25日动词三种变式',[],'day6',[4,5,6]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–9页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.dialog.topics.push(['11月24日 · 教材 p.17 个人信息问句',[],'day5',[16]]);blocks.dialog.topics.push(['11月24日 · 电话与住址问句',[],'day5',[17,19]]);blocks.dialog.topics.push(['11月24日 · 教材 p.3 报名登记对话',[],'day5',[20,21]]);blocks.vocab.topics.push(['11月24日 · 地址与登记词汇',[],'day5',[18]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
 let activeBlock='',activeTopic=-1;let listenIndex=0,listenShown=false;const listenPool=Array.from(new Map([...lessons.p26,...day3].flatMap(s=>s[1]).filter(x=>typeof x[0]==='string'&&x[0].split(/\s+/).length>=2&&x[0].split(/\s+/).length<=14&&/[.!?]$/.test(x[0])&&!/[\/…]/.test(x[0])).map(x=>[x[0],x])).values());function renderListening(){let m=$('menu'),root=$('root');m.replaceChildren();root.replaceChildren();$('controls').hidden=false;$('focus').hidden=true;menuButton(m,'‹ 首页','',()=>{if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';navigate('')});let h=document.createElement('h2');h.textContent='🎧 听力练习 · Écoute';m.append(h);let p=document.createElement('p');p.textContent='先听，听不清可以重复；准备好再看原文。不计分。';root.append(p);if(!listenPool.length)return;let [fr,zh]=listenPool[listenIndex];let card=document.createElement('article');let count=document.createElement('p');count.textContent=(listenIndex+1)+' / '+listenPool.length;card.append(count);function btn(label,fn){let b=document.createElement('button');b.textContent=label;b.onclick=fn; b.style.margin='4px';card.append(b)}btn('🔊 播放 / 重听',()=>say(fr));btn(listenShown?'隐藏原文':'显示原文与中文',()=>{listenShown=!listenShown;renderListening()});let answer=document.createElement('div');answer.style.cssText='padding:16px 0;font-size:1.2em';answer.textContent=listenShown?fr:'••••••••';card.append(answer);if(listenShown){let z=document.createElement('p');z.textContent=zh;card.append(z)}function step(i){if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';listenIndex=(i+listenPool.length)%listenPool.length;listenShown=false;renderListening()}btn('上一句',()=>step(listenIndex-1));btn('下一句',()=>step(listenIndex+1));btn('随机一句',()=>step(listenIndex+1+Math.floor(Math.random()*Math.max(1,listenPool.length-1))));root.append(card)}
 
 const blindQuestionPool=[
@@ -212,6 +257,35 @@ const blindQuestionPool=[
 {fr:'Quelle est votre date de naissance ?',zh:'您的出生日期是什么？',parts:[['Quelle est','是什么'],['votre','您的'],['date de naissance','出生日期']],why:'date 是阴性，所以是 quelle；votre 不分名词阴阳性。',answer:'Le …',source:'11月24日 · 教材 p.17'},
 {fr:'Maria, quelle langue tu parles ?',zh:'Maria，你说什么语言？',parts:[['quelle langue','什么语言'],['tu','你'],['parles','说']],why:'本句用 parles 而不是 est；按老师绿色批改。',answer:'Je parle français.',source:'11月24日 · 教材 p.55'}
 ];
+
+const highPriorityVerbListening=[
+ ['Es-tu à la maison ?','你在家吗？','Être：es-tu 是动词 es 与 tu 倒装。','Oui, je suis à la maison.','11月25日 · 印刷教材 ÊTRE 第1题'],
+ ['Est-il canadien ?','他是加拿大人吗？','Être：est-il 是动词 est 与 il 倒装。','Oui, il est canadien.','11月25日 · 印刷教材 ÊTRE 第2题'],
+ ['Est-elle fatiguée ?','她累了吗？','Être：est-elle = est + elle。','Oui, elle est fatiguée.','11月25日 · 印刷教材 ÊTRE 第3题'],
+ ['Sommes-nous en classe ?','我们在教室吗？','Être：sommes-nous = sommes + nous。','Oui, nous sommes en classe.','11月25日 · 印刷教材 ÊTRE 第4题'],
+ ['Êtes-vous en retard ?','您迟到了吗？','Être：êtes-vous = êtes + vous。','Non, je ne suis pas en retard.','11月25日 · 印刷教材 ÊTRE 第5题'],
+ ['Sont-ils au travail ?','他们在上班吗？','Être：sont-ils = sont + ils。','Oui, ils sont au travail.','11月25日 · 印刷教材 ÊTRE 第6题'],
+ ['Sont-elles françaises ?','她们是法国人吗？','Être：sont-elles = sont + elles。','Oui, elles sont françaises.','11月25日 · 印刷教材 ÊTRE 第8题'],
+ ['Êtes-vous à Montréal ?','您在蒙特利尔吗？','Être：êtes-vous = êtes + vous。','Oui, je suis à Montréal.','11月25日 · 印刷教材 ÊTRE 第9题'],
+ ['Est-il malade ?','他生病了吗？','Être：est-il = est + il。','Non, il n’est pas malade.','11月25日 · 印刷教材 ÊTRE 第10题'],
+ ['Sommes-nous prêts ?','我们准备好了吗？','Être：sommes-nous = sommes + nous。','Oui, nous sommes prêts.','11月25日 · 印刷教材 ÊTRE 第11题'],
+ ['Sont-ils à la maison ?','他们在家吗？','Être：sont-ils = sont + ils。','Oui, ils sont à la maison.','11月25日 · 印刷教材 ÊTRE 第12题'],
+ ['Es-tu en vacances ?','你在休假吗？','Être：es-tu = es + tu。','Non, je ne suis pas en vacances.','11月25日 · 印刷教材 ÊTRE 第13题'],
+ ['Est-elle québécoise ?','她是魁北克人吗？','Être：est-elle = est + elle。','Oui, elle est québécoise.','11月25日 · 印刷教材 ÊTRE 第14题'],
+ ['As-tu une voiture ?','你有车吗？','Avoir：as-tu = as + tu；否定是 tu n’as pas de voiture。','Non, je n’ai pas de voiture.','11月25日 · 印刷教材 AVOIR 第2题'],
+ ['A-t-il une sœur ?','他有姐妹吗？','Avoir：a-t-il 倒装时插入 -t-。','Oui, il a une sœur.','11月25日 · 印刷教材 AVOIR 第3题'],
+ ['A-t-elle un rendez-vous ?','她有预约吗？','Avoir：a-t-elle 倒装时插入 -t-。','Oui, elle a un rendez-vous.','11月25日 · 印刷教材 AVOIR 第4题'],
+ ['Avons-nous des cours ?','我们有课吗？','Avoir：avons-nous = avons + nous。','Non, nous n’avons pas de cours.','11月25日 · 印刷教材 AVOIR 第5题'],
+ ['Avez-vous des enfants ?','您有孩子吗？','Avoir：avez-vous = avez + vous。','Oui, j’ai deux enfants.','11月25日 · 印刷教材 AVOIR 第6题'],
+ ['Ont-ils un chien ?','他们有狗吗？','Avoir：ont-ils = ont + ils。','Oui, ils ont un chien.','11月25日 · 印刷教材 AVOIR 第7题'],
+ ['Ont-elles du travail ?','她们有工作要做吗？','Avoir：ont-elles = ont + elles。','Oui, elles ont du travail.','11月25日 · 印刷教材 AVOIR 第8题'],
+ ['Avez-vous une question ?','您有问题吗？','Avoir：avez-vous = avez + vous。','Oui, j’ai une question.','11月25日 · 印刷教材 AVOIR 第9题'],
+ ['Avons-nous assez de temps ?','我们有足够时间吗？','Avoir：avons-nous = avons + nous。','Non, nous n’avons pas assez de temps.','11月25日 · 印刷教材 AVOIR 第11题'],
+ ['As-tu des cours aujourd’hui ?','你今天有课吗？','Avoir：as-tu = as + tu。','Non, je n’ai pas de cours aujourd’hui.','11月25日 · 印刷教材 AVOIR 第13题'],
+ ['Ont-ils des enfants ?','他们有孩子吗？','Avoir：ont-ils = ont + ils。','Non, ils n’ont pas d’enfants.','11月25日 · 印刷教材 AVOIR 第16题']
+];
+blindQuestionPool.push(...highPriorityVerbListening.map(([fr,zh,why,answer,source])=>({fr,zh,parts:[[fr.split(' ')[0],'问句的动词形式'],[fr.split(' ').slice(1).join(' '),'后面的提问内容']],why,answer,source})));
+
 let blindOrder=[],blindAt=0,blindRevealed=false;
 function resetBlindDemo(){
  blindOrder=blindQuestionPool.map((_,i)=>i);
@@ -348,6 +422,9 @@ const samples=[
 for(const sample of samples){let line=document.createElement('div');line.style.marginBottom='16px';let full=document.createElement('button');full.className='word';full.textContent='🔊 '+sample.sentence;full.onclick=()=>say(sample.sentence);line.append(full);let meaning=document.createElement('p');meaning.className='note';meaning.textContent=sample.meaning;line.append(meaning);let pieces=document.createElement('div');pieces.className='compactGrid';for(const [fr,zh] of sample.parts){let b=document.createElement('button');b.className='compactWord';let f=document.createElement('span');f.textContent=fr;let z=document.createElement('small');z.className='zh';z.textContent=zh;b.append(f,z);b.onclick=()=>say(fr);pieces.append(b)}line.append(pieces);section.append(line)}
 root.append(section);
 }
+mk('11月25日重点 · Être 三种形式',['肯定','否定','倒装疑问'],[['Tu es étudiant.','Tu n’es pas étudiant.','Es-tu étudiant ?'],['Il est étudiant.','Il n’est pas étudiant.','Est-il étudiant ?'],['Nous sommes étudiants.','Nous ne sommes pas étudiants.','Sommes-nous étudiants ?'],['Vous êtes étudiants.','Vous n’êtes pas étudiants.','Êtes-vous étudiants ?'],['Ils sont étudiants.','Ils ne sont pas étudiants.','Sont-ils étudiants ?']],'教材第一张：ne / n’ + 动词 + pas；疑问句动词与代词交换位置。');
+mk('11月25日重点 · Avoir 三种形式',['肯定','否定','倒装疑问'],[['J’ai une voiture.','Je n’ai pas de voiture.','Ai-je une voiture ?'],['Tu as une voiture.','Tu n’as pas de voiture.','As-tu une voiture ?'],['Il a une voiture.','Il n’a pas de voiture.','A-t-il une voiture ?'],['Nous avons une voiture.','Nous n’avons pas de voiture.','Avons-nous une voiture ?'],['Vous avez une voiture.','Vous n’avez pas de voiture.','Avez-vous une voiture ?'],['Ils ont une voiture.','Ils n’ont pas de voiture.','Ont-ils une voiture ?']],'教材第二张：un / une / des 在普通否定句中变为 de / d’；倒装 A-t-il、A-t-elle 有连接的 -t-。');
+mk('11月25日重点 · 两种否定的不同',['Être（是）','Avoir（有）'],[['Il n’est pas étudiant.','Il n’a pas de frère.'],['Tu n’es pas en vacances.','Tu n’as pas de cours.']],'关键：avoir 的 un / une / des → de / d’，être 这里不需要这种改变；Nous n’avons pas assez de temps 仍保留 assez de。');
 mk('11月25日 · date / année de naissance',['法语','中文'],[['date de naissance','出生日期：年月日'],['année de naissance','出生年份：只问哪一年']],'第2页：只比较今天学过的两个词组；课堂未记新的完整问句。');
 mk('11月25日 · 邮编问句结构',['较口语','Quel est…'],[['C’est quoi ton code postal ?','Quel est ton code postal ?']],'第1页手写：两种询问邮编的句型。回答：C’est… / Mon code postal est…');
 mk('11月25日 · cent / mille 数字规律',['数字','标准写法'],[['100','cent'],['108','cent huit'],['192','cent quatre-vingt-douze'],['200','deux cents'],['900','neuf cents'],['1000','mille'],['1008','mille huit'],['2000','deux mille']],'手写校正：mille 始终不加 s；cent 在整百（如 deux cents）加 s，后接其他数字时不加。');
