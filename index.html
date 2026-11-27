@@ -298,13 +298,33 @@ const day7=[
 ["janvier / février / mars / avril / mai / juin","一月至六月（依印刷教材月份表）。"],
 ["juillet / août / septembre / octobre / novembre / décembre","七月至十二月（依印刷教材月份表）。"]
 ],"2026-11-26 · 第5页 · 印刷教材 « C’est quelle date ? »；不采用手写的个人答案"]
+,
+["第6页 · 印刷教材：几点钟、时段与活动时间",[
+["Il est quelle heure ?","现在几点？口语问法。"],
+["Quelle heure il est ?","现在几点？另一种口语问法。"],
+["Quelle heure est-il ?","现在几点？倒装问法。"],
+["Il est une heure du matin.","凌晨一点。"],
+["Il est une heure de l’après-midi. / Il est treize heures.","下午一点／13:00。"],
+["Il est six heures du soir. / Il est dix-huit heures.","傍晚六点／18:00。"],
+["Il est deux heures et quart. / Il est quatorze heures quinze.","14:15；et quart = 过一刻钟。"],
+["À quelle heure, l’école de ta fille finit ?","你女儿的学校几点放学？教材问句。"],
+["À trois heures et demie. / À quinze heures trente.","15:30；et demie = 过半小时。"],
+["Le film commence à quelle heure ?","电影几点开始？"],
+["À sept heures moins quart. / À dix-huit heures quarante-cinq.","18:45；moins quart = 差15分钟到7点。"],
+["L’avion arrive à quelle heure ?","飞机几点到？"],
+["À vingt heures quarante-trois.","20:43；教材的航班例子。"],
+["L’autobus passe à quelle heure ?","公交车几点经过？"],
+["À quatre heures moins vingt. / À quinze heures quarante.","15:40；moins vingt = 差20分钟到4点。"],
+["midi / minuit","正午12:00／午夜00:00。"],
+["le matin / l’après-midi / le soir / la nuit","早晨／下午／晚上／夜间。"]
+],"2026-11-26 · 第6页 · 印刷教材 « Il est quelle heure ? »；按教材保留问答和时间例子"]
 ];
 const datedLessons=[{date:'2026-11-19',day:2,sections:lessons.p26},{date:'2026-11-20',day:3,sections:day3},{date:'2026-11-23',day:4,sections:day4},{date:'2026-11-24',day:5,sections:day5},{date:'2026-11-25',day:6,sections:day6},{date:'2026-11-26',day:7,sections:day7}];
 function localDate(){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Toronto',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 function todaysLesson(){return datedLessons.find(x=>x.date===localDate())}
 function archiveTopics(){if(localDate()<='2026-11-20')return;const add=(b,title,ids,rs=[])=>blocks[b].topics.push([title,[],null,ids,rs]);function extend(b,i,ids,rs=[]){blocks[b].topics[i][3]=ids;blocks[b].topics[i][4]=rs}
 extend('vocab',0,[12]);extend('vocab',2,[10]);extend('vocab',3,[14,15,18]);blocks.vocab.topics[5]=['数字 1–100',[],null,[17]];add('vocab','职业',[2]);add('vocab','家庭与婚姻',[7,9]);extend('grammar',0,[5,11]);extend('grammar',1,[],[5]);extend('grammar',2,[],[6]);extend('grammar',3,[],[4]);add('grammar','Être 与 Avoir',[],[2,3]);add('grammar','定冠词与省音',[],[0,1]);extend('dialog',1,[0,1,13]);extend('dialog',2,[16]);extend('dialog',3,[14,15]);add('dialog','家庭与婚姻状况',[7,9]);extend('sound',2,[3]);add('review','优先：Être / Avoir 与家庭问答',[6,8,7,9]);add('review','数字、星期、月份、四季',[17,18,14,15]);}
-archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月26日 · 第1–5页 · 问句、时间与日期',[],'day7',[0,1,2,3,4,5,6,7]]);blocks.dialog.topics.push(['11月26日 · 语调、Est-ce que、倒装',[],'day7',[0]]);blocks.dialog.topics.push(['11月26日 · 午餐问句三种形式',[],'day7',[2]]);blocks.vocab.topics.push(['11月26日 · 问候、告别与时间表达',[],'day7',[3,4,5]]);blocks.vocab.topics.push(['11月26日 · 时间、星期与月份',[],'day7',[6,7]]);blocks.dialog.topics.push(['11月26日 · 问时间、星期及日期',[],'day7',[6,7]]);blocks.vocab.topics.push(['11月26日 · 课堂补充词汇',[],'day7',[1]]);blocks.grammar.topics.unshift(['11月26日 · 问句三种形式',[],'day7',[0]]);blocks.journal.topics.unshift(['2026年11月25日 · 第1–4页 · 含重点 Être / Avoir',[],'day6',[0,1,2,3,4,5,6]]);blocks.dialog.topics.push(['11月25日 · 邮编问答',[],'day6',[0]]);blocks.vocab.topics.push(['11月25日 · 数字与发音词汇',[],'day6',[1,2]]);blocks.vocab.topics.push(['11月25日 · 出生日期和出生年份',[],'day6',[3]]);blocks.grammar.topics.unshift(['11月25日 · Être / Avoir 三种形式',[],'day6',[4,5,6]]);blocks.review.topics.unshift(['重点 · 11月25日动词三种变式',[],'day6',[4,5,6]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–9页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.dialog.topics.push(['11月24日 · 教材 p.17 个人信息问句',[],'day5',[16]]);blocks.dialog.topics.push(['11月24日 · 电话与住址问句',[],'day5',[17,19]]);blocks.dialog.topics.push(['11月24日 · 教材 p.3 报名登记对话',[],'day5',[20,21]]);blocks.vocab.topics.push(['11月24日 · 地址与登记词汇',[],'day5',[18]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
+archiveTopics();blocks.vocab.topics.push(['Jour 4 · 身体状态、数字、星期与国家',[],'day4',[0,1,7,11,12]]);blocks.grammar.topics.push(['Jour 4 · 动词、否定与发音',[],'day4rules',[0,1,2,3]]);blocks.dialog.topics.push(['Jour 4 · 婚姻、孩子与年龄',[],'day4',[2,4,6]]);blocks.review.topics.unshift(['明日 mini test · 必看',[],'day4',[2,3,4,5,6,9,10]]);blocks.review.topics.push(['明日 mini test · 数字、发音与词汇',[],'day4',[0,1,7,8,11,12]]);blocks.journal.topics.unshift(['2026年11月26日 · 第1–5页 · 问句、时间与日期',[],'day7',[0,1,2,3,4,5,6,7]]);blocks.dialog.topics.push(['11月26日 · 语调、Est-ce que、倒装',[],'day7',[0]]);blocks.dialog.topics.push(['11月26日 · 午餐问句三种形式',[],'day7',[2]]);blocks.vocab.topics.push(['11月26日 · 问候、告别与时间表达',[],'day7',[3,4,5]]);blocks.vocab.topics.push(['11月26日 · 时间、星期与月份',[],'day7',[6,7,8]]);blocks.dialog.topics.push(['11月26日 · 问时间、星期及日期',[],'day7',[6,7]]);blocks.vocab.topics.push(['11月26日 · 课堂补充词汇',[],'day7',[1]]);blocks.grammar.topics.unshift(['11月26日 · 问句三种形式',[],'day7',[0]]);blocks.journal.topics.unshift(['2026年11月25日 · 第1–4页 · 含重点 Être / Avoir',[],'day6',[0,1,2,3,4,5,6]]);blocks.dialog.topics.push(['11月25日 · 邮编问答',[],'day6',[0]]);blocks.vocab.topics.push(['11月25日 · 数字与发音词汇',[],'day6',[1,2]]);blocks.vocab.topics.push(['11月25日 · 出生日期和出生年份',[],'day6',[3]]);blocks.grammar.topics.unshift(['11月25日 · Être / Avoir 三种形式',[],'day6',[4,5,6]]);blocks.review.topics.unshift(['重点 · 11月25日动词三种变式',[],'day6',[4,5,6]]);blocks.journal.topics.unshift(['2026年11月24日 · 第1–9页 · 课堂记录',[],'day5',[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]]);blocks.dialog.topics.push(['11月24日 · Quel / Quelle、Es-tu、Est-ce que',[],'day5',[0,3]]);blocks.dialog.topics.push(['11月24日 · 教材 p.55 问句练习',[],'day5',[10]]);blocks.dialog.topics.push(['11月24日 · 教材 p.54 问句练习',[],'day5',[13]]);blocks.dialog.topics.push(['11月24日 · 教材 p.17 个人信息问句',[],'day5',[16]]);blocks.dialog.topics.push(['11月24日 · 电话与住址问句',[],'day5',[17,19]]);blocks.dialog.topics.push(['11月24日 · 教材 p.3 报名登记对话',[],'day5',[20,21]]);blocks.vocab.topics.push(['11月24日 · 地址与登记词汇',[],'day5',[18]]);blocks.vocab.topics.push(['11月24日 · 身体感觉、需要与顺序词',[],'day5',[4,5]]);blocks.vocab.topics.push(['11月24日 · 孩子排行与数学词汇',[],'day5',[6,7]]);blocks.journal.topics.push(['2026年11月23日 · Jour 4',[],'day4',day4.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月23日 · 语法补充',[],'day4rules',day4rules.map((_,i)=>i)]);blocks.journal.topics.push(['2026年11月20日 · Jour 3',[],null,day3.map((_,i)=>i),day3rules.map((_,i)=>i)]);
 let activeBlock='',activeTopic=-1;let listenIndex=0,listenShown=false;const listenPool=Array.from(new Map([...lessons.p26,...day3].flatMap(s=>s[1]).filter(x=>typeof x[0]==='string'&&x[0].split(/\s+/).length>=2&&x[0].split(/\s+/).length<=14&&/[.!?]$/.test(x[0])&&!/[\/…]/.test(x[0])).map(x=>[x[0],x])).values());function renderListening(){let m=$('menu'),root=$('root');m.replaceChildren();root.replaceChildren();$('controls').hidden=false;$('focus').hidden=true;menuButton(m,'‹ 首页','',()=>{if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';navigate('')});let h=document.createElement('h2');h.textContent='🎧 听力练习 · Écoute';m.append(h);let p=document.createElement('p');p.textContent='先听，听不清可以重复；准备好再看原文。不计分。';root.append(p);if(!listenPool.length)return;let [fr,zh]=listenPool[listenIndex];let card=document.createElement('article');let count=document.createElement('p');count.textContent=(listenIndex+1)+' / '+listenPool.length;card.append(count);function btn(label,fn){let b=document.createElement('button');b.textContent=label;b.onclick=fn; b.style.margin='4px';card.append(b)}btn('🔊 播放 / 重听',()=>say(fr));btn(listenShown?'隐藏原文':'显示原文与中文',()=>{listenShown=!listenShown;renderListening()});let answer=document.createElement('div');answer.style.cssText='padding:16px 0;font-size:1.2em';answer.textContent=listenShown?fr:'••••••••';card.append(answer);if(listenShown){let z=document.createElement('p');z.textContent=zh;card.append(z)}function step(i){if(window.speechSynthesis)speechSynthesis.cancel();$('status').textContent='';listenIndex=(i+listenPool.length)%listenPool.length;listenShown=false;renderListening()}btn('上一句',()=>step(listenIndex-1));btn('下一句',()=>step(listenIndex+1));btn('随机一句',()=>step(listenIndex+1+Math.floor(Math.random()*Math.max(1,listenPool.length-1))));root.append(card)}
 
 const blindQuestionPool=[
@@ -471,6 +491,20 @@ function renderVerbPractice(){
 }
 
 
+const timeQuizAddition=[
+{cat:'时间 · 教材',prompt:'把 14:15 写成教材中的日常法语时间表达。',answer:'Il est deux heures et quart.',note:'et quart = 过15分钟；教材同时写作 quatorze heures quinze。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'把 15:30 写成教材中的日常法语时间表达。',answer:'À trois heures et demie.',note:'et demie = 过半小时；对应 quinze heures trente。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'听／读：À quatre heures moins vingt. 这是几点？',answer:'15:40（教材中的下午场景）；字面是差20分钟到4点，即3:40。',note:'moins = 减去／还差；quatre heures moins vingt = 4:00 − 20分钟。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'听／读：À sept heures moins quart. 这是几点？',answer:'18:45（教材中的傍晚场景）；字面是差15分钟到7点。',note:'moins quart = 差一刻钟。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'用教材句子问：电影几点开始？',answer:'Le film commence à quelle heure ?',note:'à quelle heure = 在几点；commence = 开始。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'用教材句子问：公交车几点经过？',answer:'L’autobus passe à quelle heure ?',note:'passe = 经过；问活动发生时间时用 à quelle heure。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'用教材句子问：飞机几点到？',answer:'L’avion arrive à quelle heure ?',note:'arrive = 到达。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'教材中的航班到达时间 À 20 h 43，用法语完整说出。',answer:'À vingt heures quarante-trois.',note:'24小时制：20 h 43。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'下午一点，用教材的12小时制和24小时制各说一次。',answer:'Il est une heure de l’après-midi. / Il est treize heures.',note:'同一时刻：13:00。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'傍晚六点，用教材的12小时制和24小时制各说一次。',answer:'Il est six heures du soir. / Il est dix-huit heures.',note:'同一时刻：18:00。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'把“你女儿的学校几点放学？”写成教材原句。',answer:'À quelle heure, l’école de ta fille finit ?',note:'教材回答：À trois heures et demie / À quinze heures trente。',source:'11月26日 · 时间教材 p.09'},
+{cat:'时间 · 教材',prompt:'说出“现在几点？”的倒装问法。',answer:'Quelle heure est-il ?',note:'与 Il est quelle heure ? 意思相同。',source:'11月26日 · 时间教材 p.09'}
+];
 const dailyQuizBank=[
  {cat:'日期与星期',prompt:'根据印刷教材：今天星期几？请写出法语问句。',answer:"Aujourd’hui, c’est quel jour ?",note:'教材：C’est + quel jour；问星期。',source:'11月26日 · 教材 C’est quelle date ?'},
  {cat:'日期与星期',prompt:'根据教材：明天星期几？请写出法语问句。',answer:"Demain, c’est quel jour ?",note:'把 Aujourd’hui 改成 Demain。',source:'11月26日 · 教材'},
@@ -514,7 +548,8 @@ const dailyQuizBank=[
  {cat:'词汇规律',prompt:'写出“200”的标准法语拼写。',answer:'deux cents',note:'整百时 cent 后面没有其他数词，则要加 s。',source:'11月25日 · 数字笔记'},
  {cat:'词汇规律',prompt:'写出“2000”的标准法语拼写。',answer:'deux mille',note:'mille 不加 s。',source:'11月25日 · 数字笔记'}
 ];
-let quizItems=[],quizAt=0,quizRevealed=false,quizMisses=[],quizKnown=0,quizCount=5,quizOnlyMistakes=false;
+
+dailyQuizBank.push(...timeQuizAddition);let quizItems=[],quizAt=0,quizRevealed=false,quizMisses=[],quizKnown=0,quizCount=5,quizOnlyMistakes=false;
 function quizShuffle(arr){for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]]}return arr}
 function startDailyQuiz(count=5,onlyMistakes=false){
  quizCount=count;quizOnlyMistakes=onlyMistakes;
